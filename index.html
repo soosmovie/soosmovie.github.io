@@ -2,8 +2,23 @@
 <html>
 <head>
   <title>soos movie</title>
+  <script src="https://kit.fontawesome.com/92d70a2fd8.js" crossorigin="anonymous">
   <script language="JavaScript">
-
+  window.onload = function()
+  { document.addEventListener("contextmenu", function(e)
+  { e.preventDefault(); }, false);
+  document.addEventListener("keydown", function(e)
+  { /*document.onkeydown = function(e) { "I" key*/
+  if (e.ctrlKey && e.shiftKey && e.keyCode == 73) { disabledEvent(e); }
+  if (e.ctrlKey && e.shiftKey && e.keyCode == 74) { disabledEvent(e); }
+  if (e.keyCode == 83 && (navigator.platform.match("Mac") ? e.metaKey : e.ctrlKey)) { disabledEvent(e); }
+  if (e.ctrlKey && e.keyCode == 85) { disabledEvent(e); }
+  if (event.keyCode == 123) { disabledEvent(e); } }, false);
+  function disabledEvent(e){
+  if (e.stopPropagation){ e.stopPropagation(); }
+  else if (window.event){ window.event.cancelBubble = true; }
+  e.preventDefault();
+  return false; } };
   </script>
 
   <link rel="icon" href="ico.png" type="image/png" />
@@ -11,6 +26,39 @@
 </head>
 
 <style>
+
+    *{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    body{
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .box{
+        background-color: #eee;
+        width: 330px;
+        height: 50px;
+        border-radius: 50px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0px 25px;
+    }
+    input{
+        width: 240px;
+        border: none;
+        outline: none;
+        background: none;
+        font-size: 18px;
+    }
+    .fa-solid:hover{
+        color: orangered;
+        cursor: pointer;
+    }
 
   .img {
           max-width: 100%;
@@ -34,6 +82,11 @@
     </div>
 
 <body bgcolor="#232425">
+
+  <div class="box">
+        <input type="text" placeholder="Search">
+        <i class="fa-solid fa-magnifying-glass"></i>
+    </div>
 
 </div>
 
